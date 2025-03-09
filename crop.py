@@ -13,7 +13,7 @@ crops = {
         'water_requirement': '450-700 mm'
     },
     'Wheat': {
-        'Wheat': {'image': 'https://upload.wikimedia.org/wikipedia/commons/9/94/Wheat_close-up.JPG'}
+        'image': 'https://upload.wikimedia.org/wikipedia/commons/9/94/Wheat_close-up.JPG'},
         'process': 'Soil tillage, sowing seeds, irrigation, and harvesting.',
         'optimal_period': 'November to April',
         'soil_type': 'Well-drained loamy soil',
