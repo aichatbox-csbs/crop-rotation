@@ -465,7 +465,7 @@ st.sidebar.markdown("💡 Developed to support farmers with optimized cultivatio
 
 # Page Routing
 if selected_option == "Home":
-    st.title("Welcome to the Smart Farming Assistant 🚜")
+    st.title("Welcome to the Smart FARMING Assistant 🚜")
     st.markdown("""
         This tool provides insights into various crops, including:
         - 🌱 Best planting periods  
