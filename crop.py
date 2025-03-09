@@ -247,17 +247,30 @@ def display_water_management(crop_name):
         st.write(crop['water_management'])
 
 # Function to display past history
+# Function to display past history
 def display_past_history(crop_name):
     crop = get_crop_details(crop_name)
     if crop:
         st.write(f"### Past History of {crop_name} Cultivation")
+        
+        # Create a neatly formatted table using markdown
+        st.markdown(
+            f"""
+            | **Category**        | **Details** |
+            |---------------------|------------|
+            | **Rotation Crops**  | {', '.join(crop['rotation_strategies'])} |
+            | **Soil Health**     | {crop['soil_health']} |
+            | **Water Management**| {crop['water_management']} |
+            """, unsafe_allow_html=True
+        )
+        
+        # Alternatively, use st.dataframe for a structured table
         history_data = {
-            "Crop": crop_name,
-            "Rotation Crops": ', '.join(crop['rotation_strategies']),
-            "Soil Health": crop['soil_health'],
-            "Water Management": crop['water_management']
+            "Category": ["Rotation Crops", "Soil Health", "Water Management"],
+            "Details": [', '.join(crop['rotation_strategies']), crop['soil_health'], crop['water_management']]
         }
-        st.table([history_data])
+        st.dataframe(history_data, width=700)  # Adjust width for better readability
+
 
 # Streamlit UI
 st.title("Smart Farming Assistant")
