@@ -467,7 +467,7 @@ selected_crop = st.sidebar.selectbox("Choose a crop to view details:", list(crop
 crop_data = crops[selected_crop]
 
 # Display Crop Information
-st.image(crop_data['image'], width=700, caption=f"{selected_crop} Field")
+st.image(crop_data['image'], width=300, caption=f"{selected_crop} Field")
 
 st.markdown(f"<div class='header'>🌱 Crop Rotation Strategies</div>", unsafe_allow_html=True)
 st.markdown(f"<div class='subtext'><b>Best Rotation Crops:</b> {', '.join(crop_data['rotation_strategies'])}</div>", unsafe_allow_html=True)
