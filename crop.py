@@ -461,17 +461,18 @@ selected_option = st.sidebar.radio("Navigation", ["Home", "Crop Details", "Past 
 st.sidebar.markdown("### 🌍 Select a Crop")
 selected_crop = st.sidebar.selectbox("Choose a crop:", list(crops.keys()))
 
-st.sidebar.markdown("💡 Developed to support farmers with optimized cultivation practices.")
+st.sidebar.markdown("💡 Developed to support farmers with optimized cultivation practices.
+                         JAI KISAAN , JAI JAVAAN !!")
 
 # Page Routing
 if selected_option == "Home":
     st.title("Welcome to the Smart FARMING Assistant 🚜")
     st.markdown("""
         This tool provides insights into various crops, including:
+        - 🔄 CROP Rotation Strategies  
         - 🌱 Best planting periods  
         - 🌾 Suitable soil types  
         - 💧 Water management techniques  
-        - 🔄 Crop rotation strategies  
         - 📜 Past cultivation histories  
         
         Use the sidebar navigation to explore detailed information!
