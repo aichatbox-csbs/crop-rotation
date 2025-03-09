@@ -13,7 +13,7 @@ crops = {
         'water_requirement': '450-700 mm'
     },
     'Wheat': {
-        'image': 'https://upload.wikimedia.org/wikipedia/commons/9/94/Wheat_close-up.JPG'},
+        'image': 'https://upload.wikimedia.org/wikipedia/commons/9/94/Wheat_close-up.JPG',
         'process': 'Soil tillage, sowing seeds, irrigation, and harvesting.',
         'optimal_period': 'November to April',
         'soil_type': 'Well-drained loamy soil',
@@ -23,13 +23,13 @@ crops = {
         'water_requirement': '400-500 mm'
     },
     'Maize': {
-        'image': 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Maize_cobs.jpg',
-        'process': 'Land preparation, seed sowing, fertilization, and harvesting.',
-        'optimal_period': 'June to October',
-        'soil_type': 'Well-drained fertile soil',
-        'rotation_strategies': ['Soybean', 'Blackgram', 'Pea'],
-        'soil_health': 'Use cover crops like clover to prevent soil erosion.',
-        'water_management': 'Ensure adequate moisture during tasseling and silking stages.',
+        'image': 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Maize_field.jpg',
+        'process': 'Field preparation, seed sowing, irrigation, weeding, harvesting.',
+        'optimal_period': 'June to September',
+        'soil_type': 'Loamy soil with good drainage',
+        'rotation_strategies': ['Legumes', 'Mustard'],
+        'soil_health': 'Enhance organic matter by using compost.',
+        'water_management': 'Irrigate at critical growth stages: silking and grain filling.',
         'water_requirement': '500-800 mm'
     },
     'Cotton': {
