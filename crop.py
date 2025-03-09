@@ -432,7 +432,7 @@ def get_crop_details(crop_name):
 def display_crop_info(crop_name):
     crop = get_crop_details(crop_name)
     if crop:
-        st.image(crop['image'], caption=f"{crop_name} Field", use_column_width=True)
+        st.image(crop['image'], caption=f"{crop_name} Field", use_container_width=True)
         st.markdown(f"## 🌱 {crop_name} Cultivation Process")
         st.markdown(f"**🔹 Optimal Planting Period:** {crop['optimal_period']}")
         st.markdown(f"**🔹 Water Requirement:** {crop['water_requirement']}")
