@@ -257,13 +257,17 @@ crops = {
         'water_management': 'Requires irrigation during flowering and seed filling.',
         'water_requirement': '400-600 mm'
     }
-}# Function to fetch crop details
- #Sidebar with selection options
+}
+# Sidebar with selection options
 st.sidebar.markdown("<div class='sidebar-title'>🌱 Select a Crop</div>", unsafe_allow_html=True)
 selected_crop = st.sidebar.selectbox("Choose a crop to view details:", list(crops.keys()))
 
 # Main Dashboard Content
 st.markdown("<div class='main-title'>📊 Crop Rotation Strategies & Best Practices</div>", unsafe_allow_html=True)
+
+# Display selected crop image
+crop_data = crops[selected_crop]
+st.image(crop_data['image'], width=700, caption=f"{selected_crop} Field")
 
 # Azure-Style Dashboard Layout
 st.markdown(f"<div class='header'>🌾 Crop Rotation Strategies</div>", unsafe_allow_html=True)
@@ -290,4 +294,3 @@ with col2:
 
 st.markdown(f"<div class='header'>🌿 Soil Health Improvement</div>", unsafe_allow_html=True)
 st.markdown(f"<div class='azure-theme'>{crop_data['soil_health']}</div>", unsafe_allow_html=True)
-
