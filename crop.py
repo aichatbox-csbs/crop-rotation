@@ -243,7 +243,6 @@ def display_past_history(crop_name):
             "Category": ["Rotation Crops", "Soil Health", "Water Management"],
             "Details": [', '.join(crop['rotation_strategies']), crop['soil_health'], crop['water_management']]
         }
-        df = pd.DataFrame(history_data)
         st.dataframe(history_data, width=700)
       
 
