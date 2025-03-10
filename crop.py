@@ -1,53 +1,5 @@
 import streamlit as st
 
-# Custom CSS for a professional Azure-like dashboard look
-st.markdown("""
-    <style>
-        body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
-        .main-title {
-            text-align: center;
-            font-size: 32px;
-            color: #2c3e50;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .sidebar-title {
-            font-size: 22px;
-            font-weight: bold;
-            color: #16a085;
-            margin-bottom: 10px;
-        }
-        .dashboard-box {
-            background-color: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        .header {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2980b9;
-            margin-top: 15px;
-        }
-        .subtext {
-            font-size: 16px;
-            color: #34495e;
-        }
-        .azure-theme {
-            background-color: #ffffff;
-            border-left: 5px solid #3498db;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-
 # Define crop data
 crops = {
     'Rice': {
