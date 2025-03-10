@@ -230,24 +230,29 @@ def display_crop_info(crop_name):
         st.markdown(f"**🔹 Suitable Soil Type:** {crop['soil_type']}")
         st.markdown(f"**🔹 Cultivation Steps:** {crop['process']}")
 
-# Function to display past history
+# Function to display past history and past yields
 def display_past_history(crop_name):
     crop = get_crop_details(crop_name)
     if crop:
         st.markdown(f"## 📜 Past History of {crop_name} Cultivation")
-        
         history_data = {
             "Category": ["Rotation Crops", "Soil Health", "Water Management"],
             "Details": [', '.join(crop['rotation_strategies']), crop['soil_health'], crop['water_management']]
         }
-        history_df = pd.DataFrame(history_data)
-        st.table(history_df)
+        df = pd.DataFrame(history_data)
+        st.dataframe(df, width=700)
         
-        # Display past yields
+        # Plot past yields
+        st.markdown("### 🌿 Past Yields (tons per hectare)")
         if 'past_yields' in crop:
-            st.markdown(f"## 📊 Past Yields of {crop_name}")
-            yield_data = pd.DataFrame(list(crop['past_yields'].items()), columns=["Year", "Yield (tons/ha)"])
-            st.plot(yield_data)
+            fig, ax = plt.subplots()
+            years = list(range(len(crop['past_yields'])))
+            ax.plot(years, crop['past_yields'], marker='o', linestyle='-', color='green', label=crop_name)
+            ax.set_xlabel("Years")
+            ax.set_ylabel("Yield (tons/hectare)")
+            ax.set_title(f"Past Yield Trends for {crop_name}")
+            ax.legend()
+            st.pyplot(fig)
 
 # Streamlit UI with Sidebar Navigation
 st.set_page_config(page_title="Smart Farming Assistant", layout="wide")
@@ -258,7 +263,7 @@ selected_option = st.sidebar.radio("Navigation", ["Home", "Crop Details", "Past 
 st.sidebar.markdown("### 🌍 Select a Crop")
 selected_crop = st.sidebar.selectbox("Choose a crop:", list(crops.keys()))
 
-st.sidebar.markdown("💡 Developed to support farmers with optimized cultivation practices. JAI KISAAN! JAI JAVAAN!!")
+st.sidebar.markdown("\ud83d\udca1 Developed to support farmers with optimized cultivation practices. JAI KISAAN! JAI JAVAAN!!")
 
 # Page Routing
 if selected_option == "Home":
@@ -270,7 +275,6 @@ if selected_option == "Home":
         - 🌾 Suitable soil types  
         - 💧 Water management techniques  
         - 📜 Past cultivation histories  
-        - 📊 Past Yields Information  
         
         Use the sidebar navigation to explore detailed information!
     """)
