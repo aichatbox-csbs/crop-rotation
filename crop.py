@@ -1,4 +1,7 @@
 import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
+
 # Define crop data
 crops = {
     'Rice': {
@@ -242,7 +245,19 @@ def display_past_history(crop_name):
             "Category": ["Rotation Crops", "Soil Health", "Water Management"],
             "Details": [', '.join(crop['rotation_strategies']), crop['soil_health'], crop['water_management']]
         }
+        df = pd.DataFrame(history_data)
         st.dataframe(history_data, width=700)
+         # Plot past yields
+        st.markdown("### 🌿 Past Yields (tons per hectare)")
+        if 'past_yields' in crop:
+            fig, ax = plt.subplots()
+            years = list(range(len(crop['past_yields'])))
+            ax.plot(years, crop['past_yields'], marker='o', linestyle='-', color='green', label=crop_name)
+            ax.set_xlabel("Years")
+            ax.set_ylabel("Yield (tons/hectare)")
+            ax.set_title(f"Past Yield Trends for {crop_name}")
+            ax.legend()
+            st.pyplot(fig)
 
 # Streamlit UI with Sidebar Navigation
 st.set_page_config(page_title="Smart Farming Assistant", layout="wide")
