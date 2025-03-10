@@ -9,7 +9,8 @@ crops = {
         'rotation_strategies': ['Lentil', 'Chickpea', 'Mustard'],
         'soil_health': 'Incorporate green manure crops like Sesbania to enhance nitrogen content.',
         'water_management': 'Maintain 5 cm of standing water during vegetative growth.',
-        'water_requirement': '450-700 mm'
+        'water_requirement': '450-700 mm',
+        'past_yields': [3.2, 3.5, 3.8, 3.6, 4.0]
     },
     'Wheat': {
         'process': 'Soil tillage, sowing seeds, irrigation, and harvesting.',
@@ -18,7 +19,9 @@ crops = {
         'rotation_strategies': ['Mustard', 'Pea', 'Sunflower'],
         'soil_health': 'Rotate with legumes to improve soil fertility.',
         'water_management': 'Irrigate at crown root initiation, tillering, flowering, and grain filling stages.',
-        'water_requirement': '400-500 mm'
+        'water_requirement': '400-500 mm'',
+        'Wheat': [3.2, 3.5, 3.8, 4.0, 4.2, 4.5]
+        
     },
     'Maize': {
         'process': 'Land preparation, seed sowing, fertilization, and harvesting.',
@@ -27,7 +30,8 @@ crops = {
         'rotation_strategies': ['Soybean', 'Blackgram', 'Pea'],
         'soil_health': 'Use cover crops like clover to prevent soil erosion.',
         'water_management': 'Ensure adequate moisture during tasseling and silking stages.',
-        'water_requirement': '500-800 mm'
+        'water_requirement': '500-800 mm',
+        'Maize': [2.8, 3.0, 3.3, 3.5, 3.7, 4.0]
     },
     'Cotton': {
         'process': 'Seed sowing, thinning, weeding, fertilization, and harvesting.',
@@ -36,7 +40,8 @@ crops = {
         'rotation_strategies': ['Groundnut', 'Soybean', 'Maize'],
         'soil_health': 'Incorporate organic matter to maintain soil structure.',
         'water_management': 'Requires regular irrigation, especially during flowering and boll formation.',
-        'water_requirement': '700-1300 mm'
+        'water_requirement': '700-1300 mm',
+        'Cotton': [1.5, 1.7, 1.8, 2.0, 2.1, 2.3]
     },
     'Sugarcane': {
         'process': 'Land preparation, sett planting, fertilization, irrigation, and harvesting.',
@@ -45,7 +50,8 @@ crops = {
         'rotation_strategies': ['Pulses', 'Vegetables', 'Legumes'],
         'soil_health': 'Use trash mulching to conserve moisture and improve organic matter.',
         'water_management': 'Requires frequent irrigation; avoid waterlogging.',
-        'water_requirement': '1500-2500 mm'
+        'water_requirement': '1500-2500 mm',
+        'Sugarcane': [65, 68, 70, 72, 75, 78]
     },
     'Carrot': {
         'process': 'Seed sowing, thinning, weeding, and harvesting.',
@@ -54,7 +60,8 @@ crops = {
         'rotation_strategies': ['Onions', 'Garlic', 'Tomato'],
         'soil_health': 'Maintain soil pH between 6.0 and 6.8 for optimal growth.',
         'water_management': 'Keep soil consistently moist; avoid waterlogging.',
-        'water_requirement': '350-500 mm'
+        'water_requirement': '350-500 mm',
+        'Carrot': [20, 22, 24, 26, 28, 30]
     },
     'Beetroot': {
         'process': 'Seed sowing, thinning, weeding, and harvesting.',
