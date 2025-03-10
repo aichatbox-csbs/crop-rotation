@@ -250,7 +250,7 @@ def display_water_management(crop_name):
 def display_past_history(crop_name):
     crop = get_crop_details(crop_name)
     if crop:
-        st.write(f"### Past History of {crop_name} Cultivation")
+        st.write(f"### History of {crop_name} Cultivation")
         
         # Create a neatly formatted table using markdown
         st.markdown(
@@ -272,7 +272,7 @@ def display_past_history(crop_name):
 
 
 # Streamlit UI
-st.title("Smart Farming Assistant")
+st.title("Smart Farming Assistant ")
 selected_crop = st.selectbox("Select a Crop:", list(crops.keys()))
 
 if selected_crop:
