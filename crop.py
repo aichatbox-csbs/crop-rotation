@@ -258,39 +258,62 @@ crops = {
         'water_requirement': '400-600 mm'
     }
 }
-# Sidebar with selection options
-st.sidebar.markdown("<div class='sidebar-title'>🌱 Select a Crop</div>", unsafe_allow_html=True)
-selected_crop = st.sidebar.selectbox("Choose a crop to view details:", list(crops.keys()))
+def get_crop_details(crop_name):
+    return crops.get(crop_name, {})
 
-# Main Dashboard Content
-st.markdown("<div class='main-title'>📊 Crop Rotation Strategies & Best Practices</div>", unsafe_allow_html=True)
+# Function to display crop information
+def display_crop_info(crop_name):
+    crop = get_crop_details(crop_name)
+    if crop:
+        st.markdown(f'<img src="{crop["image"]}" style="width:100%; max-height:400px; object-fit:cover;">', unsafe_allow_html=True)
 
-# Display selected crop image
-crop_data = crops[selected_crop]
-st.image(crop_data['image'], width=700, caption=f"{selected_crop} Field")
+        st.markdown(f"## 🌱 {crop_name} Cultivation Process")
+        st.markdown(f"**🔹 Optimal Planting Period:** {crop['optimal_period']}")
+        st.markdown(f"**🔹 Water Requirement:** {crop['water_requirement']}")
+        st.markdown(f"**🔹 Suitable Soil Type:** {crop['soil_type']}")
+        st.markdown(f"**🔹 Cultivation Steps:** {crop['process']}")
 
-# Azure-Style Dashboard Layout
-st.markdown(f"<div class='header'>🌾 Crop Rotation Strategies</div>", unsafe_allow_html=True)
-st.markdown(f"<div class='azure-theme'><b>Best Rotation Crops:</b> {', '.join(crop_data['rotation_strategies'])}</div>", unsafe_allow_html=True)
+# Function to display past history
+def display_past_history(crop_name):
+    crop = get_crop_details(crop_name)
+    if crop:
+        st.markdown(f"## 📜 Past History of {crop_name} Cultivation")
+        
+        history_data = {
+            "Category": ["Rotation Crops", "Soil Health", "Water Management"],
+            "Details": [', '.join(crop['rotation_strategies']), crop['soil_health'], crop['water_management']]
+        }
+        st.dataframe(history_data, width=700)
 
-st.markdown(f"<div class='header'>🔄 Recommended Next Crop</div>", unsafe_allow_html=True)
-st.markdown(f"<div class='azure-theme'><b>Suggested Crop:</b> {crop_data['recommended_next_crop']}</div>", unsafe_allow_html=True)
+# Streamlit UI with Sidebar Navigation
+st.set_page_config(page_title="Smart Farming Assistant", layout="wide")
 
-col1, col2 = st.columns(2)
+st.sidebar.title("🌾 Smart Farming Assistant")
+selected_option = st.sidebar.radio("Navigation", ["Home", "Crop Details", "Past History"])
 
-with col1:
-    st.markdown(f"<div class='header'>📝 Growth Process</div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='azure-theme'>{crop_data['process']}</div>", unsafe_allow_html=True)
+st.sidebar.markdown("### 🌍 Select a Crop")
+selected_crop = st.sidebar.selectbox("Choose a crop:", list(crops.keys()))
 
-    st.markdown(f"<div class='header'>🛑 Soil Type</div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='azure-theme'>{crop_data['soil_type']}</div>", unsafe_allow_html=True)
+st.sidebar.markdown("💡 Developed to support farmers with optimized cultivation practices.JAI KISAAN!  JAI JAVAAN !!")
 
-with col2:
-    st.markdown(f"<div class='header'>💧 Water Management</div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='azure-theme'>{crop_data['water_management']}</div>", unsafe_allow_html=True)
+# Page Routing
+if selected_option == "Home":
+    st.title("Welcome to the Smart FARMING Assistant 🚜")
+    st.markdown("""
+        This tool provides insights into various crops, including:
+        - 🔄 CROP Rotation Strategies  
+        - 🌱 Best planting periods  
+        - 🌾 Suitable soil types  
+        - 💧 Water management techniques  
+        - 📜 Past cultivation histories  
+        
+        Use the sidebar navigation to explore detailed information!
+    """)
 
-    st.markdown(f"<div class='header'>🚰 Water Requirement</div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='azure-theme'>{crop_data['water_requirement']}</div>", unsafe_allow_html=True)
+elif selected_option == "Crop Details":
+    if selected_crop:
+        display_crop_info(selected_crop)
 
-st.markdown(f"<div class='header'>🌿 Soil Health Improvement</div>", unsafe_allow_html=True)
-st.markdown(f"<div class='azure-theme'>{crop_data['soil_health']}</div>", unsafe_allow_html=True)
+elif selected_option == "Past History":
+    if selected_crop:
+        display_past_history(selected_crop)
