@@ -1,5 +1,5 @@
 import streamlit as st
-
+import pandas as pd
 # Define crop data
 crops = {
     'Rice': {
@@ -233,7 +233,14 @@ def display_past_history(crop_name):
             "Category": ["Rotation Crops", "Soil Health", "Water Management"],
             "Details": [', '.join(crop['rotation_strategies']), crop['soil_health'], crop['water_management']]
         }
-        st.dataframe(history_data, width=700)
+        history_df = pd.DataFrame(history_data)
+        st.table(history_df)
+        
+        # Display past yields
+        if 'past_yields' in crop:
+            st.markdown(f"## 📊 Past Yields of {crop_name}")
+            yield_data = pd.DataFrame(list(crop['past_yields'].items()), columns=["Year", "Yield (tons/ha)"])
+            st.table(yield_data)
 
 # Streamlit UI with Sidebar Navigation
 st.set_page_config(page_title="Smart Farming Assistant", layout="wide")
@@ -244,7 +251,7 @@ selected_option = st.sidebar.radio("Navigation", ["Home", "Crop Details", "Past 
 st.sidebar.markdown("### 🌍 Select a Crop")
 selected_crop = st.sidebar.selectbox("Choose a crop:", list(crops.keys()))
 
-st.sidebar.markdown("💡 Developed to support farmers with optimized cultivation practices.JAI KISAAN!  JAI JAVAAN !!")
+st.sidebar.markdown("💡 Developed to support farmers with optimized cultivation practices. JAI KISAAN! JAI JAVAAN!!")
 
 # Page Routing
 if selected_option == "Home":
@@ -256,6 +263,7 @@ if selected_option == "Home":
         - 🌾 Suitable soil types  
         - 💧 Water management techniques  
         - 📜 Past cultivation histories  
+        - 📊 Past Yields Information  
         
         Use the sidebar navigation to explore detailed information!
     """)
