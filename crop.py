@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
 
 # Define crop data
 crops = {
@@ -247,18 +245,6 @@ def display_past_history(crop_name):
         }
         df = pd.DataFrame(history_data)
         st.dataframe(history_data, width=700)
-        
-        st.markdown("### 🌿 Past Yields (tons per hectare)")
-        if 'past_yields' in crop:
-            fig, ax = plt.subplots()
-            years = list(range(len(crop['past_yields'])))
-            ax.plot(years, crop['past_yields'], marker='o', linestyle='-', color='green', label=crop_name)
-            ax.set_xlabel("Years")
-            ax.set_ylabel("Yield (tons/hectare)")
-            ax.set_title(f"Past Yield Trends for {crop_name}")
-            ax.legend()
-            st.pyplot(fig)
-
       
 
 # Streamlit UI with Sidebar Navigation
