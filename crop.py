@@ -265,10 +265,6 @@ selected_crop = st.sidebar.selectbox("Choose a crop to view details:", list(crop
 # Main Dashboard Content
 st.markdown("<div class='main-title'>📊 Crop Rotation Strategies & Best Practices</div>", unsafe_allow_html=True)
 
-# Display selected crop image
-crop_data = crops[selected_crop]
-st.image(crop_data['image'], width=700, caption=f"{selected_crop} Field")
-
 # Azure-Style Dashboard Layout
 st.markdown(f"<div class='header'>🌾 Crop Rotation Strategies</div>", unsafe_allow_html=True)
 st.markdown(f"<div class='azure-theme'><b>Best Rotation Crops:</b> {', '.join(crop_data['rotation_strategies'])}</div>", unsafe_allow_html=True)
