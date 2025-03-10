@@ -212,7 +212,6 @@ crops = {
 }# Function to fetch crop details
 def get_crop_details(crop_name):
     return crops.get(crop_name, {})
-display_rotation_strategy(selected_crop)
 
 # Function to display crop information
 def display_crop_info(crop_name):
