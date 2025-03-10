@@ -19,7 +19,7 @@ crops = {
         'rotation_strategies': ['Mustard', 'Pea', 'Sunflower'],
         'soil_health': 'Rotate with legumes to improve soil fertility.',
         'water_management': 'Irrigate at crown root initiation, tillering, flowering, and grain filling stages.',
-        'water_requirement': '400-500 mm'',
+        'water_requirement': '400-500 mm',
         'Wheat': [3.2, 3.5, 3.8, 4.0, 4.2, 4.5]
         
     },
