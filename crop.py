@@ -244,7 +244,6 @@ def display_past_history(crop_name):
             "Details": [', '.join(crop['rotation_strategies']), crop['soil_health'], crop['water_management']]
         }
         st.dataframe(history_data, width=700)
-      
 
 # Streamlit UI with Sidebar Navigation
 st.set_page_config(page_title="Smart Farming Assistant", layout="wide")
