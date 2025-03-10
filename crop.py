@@ -214,6 +214,12 @@ crops = {
 # Function to fetch crop details
 def get_crop_details(crop_name):
     return crops.get(crop_name, {})
+# Function to display crop rotation strategy
+def display_rotation_strategy(crop_name):
+    crop = get_crop_details(crop_name)
+    if crop:
+        st.write(f"### Recommended Crop Rotation for {crop_name}")
+        st.write(f"After harvesting {crop_name}, plant: {', '.join(crop['rotation_strategies'])}")
 
 # Function to display crop information
 def display_crop_info(crop_name):
@@ -224,13 +230,6 @@ def display_crop_info(crop_name):
         st.write(f"**Optimal Planting Period:** {crop['optimal_period']}")
         st.write(f"**Water Requirement:** {crop['water_requirement']}")
         st.write(f"**Suitable Soil Type:** {crop['soil_type']}")
-
-# Function to display crop rotation strategy
-def display_rotation_strategy(crop_name):
-    crop = get_crop_details(crop_name)
-    if crop:
-        st.write(f"### Recommended Crop Rotation for {crop_name}")
-        st.write(f"After harvesting {crop_name}, plant: {', '.join(crop['rotation_strategies'])}")
 
 # Function to display soil health techniques
 def display_soil_health(crop_name):
