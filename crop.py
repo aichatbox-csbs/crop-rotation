@@ -247,7 +247,7 @@ def display_past_history(crop_name):
         if 'past_yields' in crop:
             st.markdown(f"## 📊 Past Yields of {crop_name}")
             yield_data = pd.DataFrame(list(crop['past_yields'].items()), columns=["Year", "Yield (tons/ha)"])
-            st.table(yield_data)
+            st.plot(yield_data)
 
 # Streamlit UI with Sidebar Navigation
 st.set_page_config(page_title="Smart Farming Assistant", layout="wide")
