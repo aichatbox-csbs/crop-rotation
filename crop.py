@@ -276,8 +276,8 @@ st.title("Smart Farming Assistant")
 selected_crop = st.selectbox("Select a Crop:", list(crops.keys()))
 
 if selected_crop:
-    display_crop_info(selected_crop)
     display_rotation_strategy(selected_crop)
+    display_crop_info(selected_crop)
     display_soil_health(selected_crop)
     display_water_management(selected_crop)
     display_past_history(selected_crop)
