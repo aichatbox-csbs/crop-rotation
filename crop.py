@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 # Define crop data
 crops = {
     'Rice': {
